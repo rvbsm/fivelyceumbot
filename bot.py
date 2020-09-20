@@ -13,6 +13,7 @@ logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)
 
 bot = telebot.TeleBot(TOKEN, threaded=False)
+server = Flask(__name__)
 
 db = SQLData('db/data.db')
 tt = SQLData ('db/timetable.db')
@@ -82,5 +83,17 @@ def send_table(message, day):
 	elif day == 6:
 		bot.send_message(user_id, SUNDAY_TEXT.format(date(day)), reply_markup=menu_button(), parse_mode='HTML')
 
+"""@server.route('/' + TOKEN, methods=['POST'])
+def getMessage():
+	bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+	return "!", 200
+
+@server.route("/")
+def webhook():
+	bot.remove_webhook()
+	bot.set_webhook(url='https://{}.herokuapp.com/'.format(APP_NAME) + TOKEN)
+	return "Bot is working", 200"""
+
 if __name__ == '__main__':
+#	server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
 	bot.polling(none_stop=True)

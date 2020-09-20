@@ -1,2 +1,2 @@
-TOKEN = '1251483667:AAH9y84PzZcmTaLNlLP77aNc-hENZHHKuY4'
-APP_NAME = 'fivelicbot'
+TOKEN = '1386094416:AAFs2ElaUzTSkrxzw60KmqddbHZiOrmKMRQ'
+APP_NAME = 'fivelyceumbot'

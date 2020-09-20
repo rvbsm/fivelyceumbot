@@ -52,7 +52,7 @@ class SQLData:
 		with self.connection:
 			result = self.cursor.execute('''SELECT * FROM `mon` WHERE `class` = ?''', (cl,)).fetchall()
 			for i in result:
-				return "".join(([str(i[1::]) for i in result])).replace('.', '\n').strip("()'").replace("'", "\n").replace(',', ' ')
+				return "".join(([str(i[1::]) for i in result])).replace('.', '\n').strip("()'").replace("'", "\n").replace(',', ' ').strip('None')
 
 	def close(self):
 		self.connection.close()
